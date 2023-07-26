@@ -14,7 +14,7 @@ import type {
   PaymentShippingType,
   PaymentDetailsIOS,
   PaymentDetailsIOSRaw,
-} from '../types';
+} from './types';
 import type PaymentResponseType from './PaymentResponse';
 
 // Modules
@@ -59,41 +59,6 @@ import {
 const noop = () => {};
 const IS_ANDROID = Platform.OS === 'android';
 const IS_IOS = Platform.OS === 'ios'
-
-// function processPaymentDetailsModifiers(details, serializedModifierData) {
-//     let modifiers = [];
-
-//     if (details.modifiers) {
-//       modifiers = details.modifiers;
-
-//       modifiers.forEach((modifier) => {
-//         if (modifier.total && modifier.total.amount && modifier.total.amount.value) {
-//           // TODO: refactor validateTotal so that we can display proper error messages (should remove construct 'PaymentRequest')
-//           validateTotal(modifier.total);
-//         }
-
-//         if (modifier.additionalDisplayItems) {
-//           modifier.additionalDisplayItems.forEach((displayItem) => {
-//             let value = displayItem && displayItem.amount.value && displayItem.amount.value;
-
-//             isValidDecimalMonetaryValue(value);
-//           });
-//         }
-
-//         let serializedData = modifier.data
-//           ? JSON.stringify(modifier.data)
-//           : null;
-
-//         serializedModifierData.push(serializedData);
-
-//         if (modifier.data) {
-//           delete modifier.data;
-//         }
-//       });
-//     }
-
-//     details.modifiers = modifiers;
-// }
 
 export default class PaymentRequest {
   _id: string;
