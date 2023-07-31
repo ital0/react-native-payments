@@ -33,6 +33,7 @@
   "author": "Naoufal Kadhom & Freeman Industries",
   "license": "MIT",
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "es6-error": "^4.0.2",
     "uuid": "^3.1.0",
     "validator": "^9.4.1"
