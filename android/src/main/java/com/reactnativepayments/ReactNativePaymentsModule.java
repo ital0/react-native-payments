@@ -5,15 +5,11 @@ import android.view.WindowManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.ReactBridge;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -34,9 +30,7 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ReactNativePaymentsModule extends ReactContextBaseJavaModule implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     private static final int LOAD_MASKED_WALLET_REQUEST_CODE = 88;
@@ -77,8 +71,8 @@ public class ReactNativePaymentsModule extends ReactContextBaseJavaModule implem
 
                                 UserAddress userAddress = maskedWallet.getBuyerShippingAddress();
                                 WritableNativeMap shippingAddress = userAddress != null
-                                    ? buildAddressFromUserAddress(userAddress)
-                                    : null;
+                                        ? buildAddressFromUserAddress(userAddress)
+                                        : null;
 
 
                                 // TODO: Move into function
@@ -192,8 +186,8 @@ public class ReactNativePaymentsModule extends ReactContextBaseJavaModule implem
         Log.i(REACT_CLASS, "ANDROID PAY SHOW" + options);
 
         Boolean shouldRequestShipping = options.hasKey("requestShipping") && options.getBoolean("requestShipping")
-                        || options.hasKey("requestPayerName") && options.getBoolean("requestPayerName")
-                        || options.hasKey("requestPayerPhone") && options.getBoolean("requestPayerPhone");
+                || options.hasKey("requestPayerName") && options.getBoolean("requestPayerName")
+                || options.hasKey("requestPayerPhone") && options.getBoolean("requestPayerPhone");
         Boolean shouldRequestPayerPhone = options.hasKey("requestPayerPhone") && options.getBoolean("requestPayerPhone");
 
         final PaymentMethodTokenizationParameters parameters = buildTokenizationParametersFromPaymentMethodData(paymentMethodData);
